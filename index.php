@@ -1,3 +1,12 @@
+<?php 
+function generate_pw($lenght) {
+    $data = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!%&.;,-"@+*';
+
+    $random_pw = substr(str_shuffle($data), 0, $lenght);
+    return $random_pw;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +26,7 @@
     <div class="container pt-5">
         <h1 class="text-center">Strong Password Generator</h1>
         <h2 class="text-center">Genera una password sicura</h2>
-        <form action="" class="">
+        <form action="index.php" method="GET">
             <div class="d-flex justify-content-between">
                 <label for="pw-lenght">Lunghezza password: </label>
                 <input type="text" id="pw-lenght" name="pw-lenght">
@@ -25,6 +34,8 @@
 
             <button type="submit" class="btn btn-primary"> Invia </button>
         </form>
+
+        <h3> La tua nuova password è: <?php echo generate_pw($_GET['pw-lenght'])?> </h3>
     </div>
     
 </body>
