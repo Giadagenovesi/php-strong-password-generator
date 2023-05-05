@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(7, 7, 72);
+}
+form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+h1{
+    color: gray;
+}
+h2 {
+    color: white;
+}
