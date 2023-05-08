@@ -1,5 +1,13 @@
 <?php 
 include_once __DIR__ . "/partials/function.php";
+session_start();
+
+if(isset($_GET["pw-lenght"])) {
+    $pw_lenght = $_GET["pw-lenght"];
+    $new_password = generate_pw ($pw_lenght);
+    $_SESSION["password"] = $new_password;
+    header("Location: result.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +38,9 @@ include_once __DIR__ . "/partials/function.php";
             <button type="submit" class="btn btn-primary"> Invia </button>
         </form>
 
-        <h3> La tua nuova password è: <?php echo generate_pw($_GET['pw-lenght'])?> </h3>
+        <!-- <h3> La tua nuova password è: <?php echo $new_password?> </h3> -->
+
+        
     </div>
     
 </body>
